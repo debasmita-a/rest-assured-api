@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GETAPIs.GETAPIRequestTest">
+      <class name="GETAPIs.GETAPIRequestWithBDDTest">
         <methods>
-          <include name="getUserAPITest"/>
+          <include name="getProductsTest"/>
         </methods>
-      </class> <!-- GETAPIs.GETAPIRequestTest -->
+      </class> <!-- GETAPIs.GETAPIRequestWithBDDTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
