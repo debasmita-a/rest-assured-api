@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GETAPIs.GETAPIRequestWithBDDTest">
+      <class name="GETAPIs.GETAPIRequestWithPathParam">
         <methods>
-          <include name="getProductsTest"/>
+          <include name="getUserWithQueryParamsTest"/>
         </methods>
-      </class> <!-- GETAPIs.GETAPIRequestWithBDDTest -->
+      </class> <!-- GETAPIs.GETAPIRequestWithPathParam -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
