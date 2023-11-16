@@ -3,6 +3,7 @@ package POSTAPIs;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
+import java.util.UUID;
 
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
@@ -13,8 +14,14 @@ import pojo.User;
 
 public class CreateUserWithPOJO {
 
+	//Types of POST op:
+	//1. Supply json String directly
+	//2. Supply .json file
+	//3. Supply POJO object -- Jackson library
+	
 	public static String getRandomEmailID() {
-		return "apiAutomation"+System.currentTimeMillis()+"@gamil.com";
+		//return "apiAutomation"+System.currentTimeMillis()+"@gamil.com";
+		return "apiAutomation"+ UUID.randomUUID()+"@gamil.com";
 	}
 	@Test
 	public void addUserTest() {
@@ -54,3 +61,5 @@ public class CreateUserWithPOJO {
 	}
 	
 }
+
+//setter methods will be used duing PUT and PATCH calls
