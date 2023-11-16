@@ -1,7 +1,8 @@
 package specification_concept;
 
 import org.testng.annotations.Test;
-
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -33,6 +34,11 @@ public class ReqResSpecBuilderTest {
 	
 	@Test
 	public void getUserData_With_Spec() {
-		
+		given()
+		   .spec(user_req_spec())
+		       .when()
+		           .get("/public/v2/users")
+		                .then()
+		                     .spec(get_res_spec_200_OK());
 	}
 }
