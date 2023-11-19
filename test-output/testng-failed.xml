@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="POSTAPIs.BookingAuthAPI">
+      <class name="DELETEAPI.DeleteUserTest">
         <methods>
-          <include name="addUserTest"/>
+          <include name="deleteUserAPITest"/>
         </methods>
-      </class> <!-- POSTAPIs.BookingAuthAPI -->
+      </class> <!-- DELETEAPI.DeleteUserTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

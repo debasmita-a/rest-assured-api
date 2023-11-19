@@ -23,6 +23,7 @@ public class CreateUserWithPOJO {
 		//return "apiAutomation"+System.currentTimeMillis()+"@gamil.com";
 		return "apiAutomation"+ UUID.randomUUID()+"@gamil.com";
 	}
+	
 	@Test
 	public void addUserTest() {
 		RestAssured.baseURI = "https://gorest.co.in";
