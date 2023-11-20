@@ -1,6 +1,7 @@
 package DELETEAPI;
 
 import org.testng.annotations.Test;
+import static org.hamcrest.Matchers.*;
 
 import DELETEAPI.User;
 import io.restassured.RestAssured;
@@ -32,8 +33,10 @@ public class DeleteUserTest {
 		Response postResponse = RestAssured.given().log().all()
 				.header("Authorization", "Bearer 34d6c28443cbc825f4244dd534bc37aa851fed28e853cb80a51923b195d9b29f")
 				.body(user).when().log().all().post("/public/v2/users");
+		
+		postResponse.prettyPrint();
 
-		Integer userId = postResponse.getBody().jsonPath().get("id");
+		Integer userId = postResponse.jsonPath().get("id");
 
 		System.out.println(userId);
 		
@@ -57,6 +60,6 @@ public class DeleteUserTest {
 		.assertThat()
 		.statusCode(404)
 		.and()
-		.body("message", "Resource Not Found");
+		.body("message", equalTo("Resource Not Found"));
 	}
 }
