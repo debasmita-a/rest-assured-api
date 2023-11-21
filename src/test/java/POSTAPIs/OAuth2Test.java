@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class OAuth2Test {
 	
@@ -20,7 +21,8 @@ public class OAuth2Test {
 		RestAssured.baseURI = "https://test.api.amadeus.com";
 		
 		access_token = given()
-		   .header("Content-Type", "application/x-www-form-urlencoded")
+		  // .header("Content-Type", "application/x-www-form-urlencoded")
+				.contentType(ContentType.URLENC)
 		       .formParam("grant_type", "client_credentials")
 		       .formParam("client_id", "gn93qGmTK44TEX0SbGSoEmOGxA2bAQTo")
 		       .formParam("client_secret", "mRnqKJP6ociGelNg")

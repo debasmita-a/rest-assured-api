@@ -3,8 +3,8 @@ package DELETEAPI;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
 
-import DELETEAPI.User;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class DeleteUserTest {
@@ -14,7 +14,7 @@ public class DeleteUserTest {
 	// 3. Get the user : GET 404
 
 	public static String getRandomEmailId() {
-		return "put_api_test" + System.currentTimeMillis() + "@gmail.com";
+		return "delete_api_test" + System.currentTimeMillis() + "@gmail.com";
 	}
 
 	@Test
@@ -31,6 +31,7 @@ public class DeleteUserTest {
 				            .build();
 
 		Response postResponse = RestAssured.given().log().all()
+		        .contentType(ContentType.JSON)
 				.header("Authorization", "Bearer 34d6c28443cbc825f4244dd534bc37aa851fed28e853cb80a51923b195d9b29f")
 				.body(user).when().log().all().post("/public/v2/users");
 		
@@ -60,6 +61,6 @@ public class DeleteUserTest {
 		.assertThat()
 		.statusCode(404)
 		.and()
-		.body("message", equalTo("Resource Not Found"));
+		.body("message", equalTo("Resource not found"));
 	}
 }
